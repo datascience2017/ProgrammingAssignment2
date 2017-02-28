@@ -1,5 +1,6 @@
 ##Programming Assignment 2: Lexical Scoping
 ## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
+##Inverse Matrix and cache result. Use this cache for subsequent calculations instead of recalculating
 
 makeVector <- function(x = numeric()) {
   m <- NULL
