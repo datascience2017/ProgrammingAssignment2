@@ -1,15 +1,54 @@
 ## Put comments here that give an overall description of what your
-## functions do
+## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 
-## Write a short comment describing this function
+makeVector <- function(x = numeric()) {
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m <<- NULL
+  }
+  get <- function() x
+  setmean <- function(mean) m <<- mean
+  getmean <- function() m
+  list(set = set, get = get,
+       setmean = setmean,
+       getmean = getmean)
+}
+aVector <- makeVector(1:5)
+
+#####assignment. Jesus help me.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  Inv <- NULL
+  set <- function(y) {
+    x <<- y
+    Inv <<- NULL
+  }
+  get <- function() x
+  setsolve <- function(solve) Inv <<- solve
+  getsolve <- function() Inv
+  list(set = set, get = get,
+       setsolve = setsolve,
+       getsolve = getsolve)
 }
-
-
-## Write a short comment describing this function
+##his function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  TheMatrix <- x$getsolve()
+  if (!is.null(TheMatrix)) {
+    message("getting cached inverse")
+    return(TheMatrix)
+  }
+  Matrixdata <- x$get()
+  if (!is.matrix(Matrixdata)) {
+    stop("cannot calculate its inverse ")
+  }
+  if (det(Matrixdata) == 0) {
+    message("Determinant is zero: matrix not invertible, setting cache to NULL")
+    x$setsolve(NULL)
+    return(NULL)
+  } 
+  TheMatrix <- solve(Matrixdata)
+  x$setsolve(TheMatrix)
+  TheMatrix
 }
