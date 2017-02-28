@@ -17,7 +17,7 @@ makeVector <- function(x = numeric()) {
 }
 aVector <- makeVector(1:5)
 
-#####assignment. Jesus help me.
+
 
 makeCacheMatrix <- function(x = matrix()) {
   Inv <- NULL
@@ -33,7 +33,7 @@ makeCacheMatrix <- function(x = matrix()) {
        getsolve = getsolve)
 }
 ##his function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
-
+##cacheSolve checks if there is a cached inverted matrix from makeCachedMatrix
 cacheSolve <- function(x, ...) {
   TheMatrix <- x$getsolve()
   if (!is.null(TheMatrix)) {
