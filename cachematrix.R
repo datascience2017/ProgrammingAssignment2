@@ -1,4 +1,4 @@
-## Put comments here that give an overall description of what your
+##Programming Assignment 2: Lexical Scoping
 ## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 
 makeVector <- function(x = numeric()) {
