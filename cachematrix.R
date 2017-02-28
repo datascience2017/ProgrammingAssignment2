@@ -15,9 +15,6 @@ makeVector <- function(x = numeric()) {
        setmean = setmean,
        getmean = getmean)
 }
-aVector <- makeVector(1:5)
-
-
 
 makeCacheMatrix <- function(x = matrix()) {
   Inv <- NULL
